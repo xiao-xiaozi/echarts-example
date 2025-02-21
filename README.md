@@ -39,3 +39,10 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+
+# example
+
+[!pieChart](./src/assets/example/pieChart.png)
+
+[!barChart](./src/assets/example/barChart.png)
