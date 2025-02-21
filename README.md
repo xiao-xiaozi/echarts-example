@@ -43,6 +43,6 @@ npm run lint
 
 # example
 
-[!pieChart](./src/assets/example/pieChart.png)
+![pieChart](./src/assets/example/pieChart.png)
 
-[!barChart](./src/assets/example/barChart.png)
+![barChart](./src/assets/example/barChart.png)
