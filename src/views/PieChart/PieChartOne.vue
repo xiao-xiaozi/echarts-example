@@ -1,6 +1,8 @@
 <script setup>
+import ChartLayout from "@/components/ChartLayout.vue"
 import * as echarts from "echarts"
 import { onMounted } from "vue"
+import { useRouter } from "vue-router"
 
 function initPipeOne() {
   const pieOne = echarts.init(document.getElementById('pie-one'))
@@ -84,7 +86,6 @@ function initPipeOne() {
     ]
   })
 }
-
 function initPipeTwo(){
   const pieTwo = echarts.init(document.getElementById('pie-two'))
   pieTwo.setOption({
@@ -146,33 +147,40 @@ function initPipeTwo(){
   })
 
 }
-
 onMounted(() => {
   initPipeOne()
   initPipeTwo()
 })
+
+
+const router = useRouter()
+function nextPage(){
+  router.push({ name: 'PieChartTwo' })
+}
 </script>
 <template>
-  <main class="chart-container">
-    <div class="first-box">
-      <div id="pie-one" attr="chart" />
-    </div>
-    <div class="second-box">
-      <div id="pie-two" attr="chart" />
-    </div>
-    <div class="third-box">
-      <ul>
-        <li>该图形由两个仪表盘(gauge)图表和一个饼图(pie)组成。</li>
-        <li>由第一个仪表盘构成进度的模样，第二个仪表盘通过调整起始角度构成内圆。</li>
-        <li>进度末端的圆点由饼图构成。需要将饼图调整为与进度模样的仪表盘的起始角度一直，重叠在一起。然后将饼图划分为三段，第一段的数值与进度数值一直，第二段的数值为空（给这个数据值设置label样式，即圆点），第三段为饼图总的数值大小减去第一段的数值。以此控制圆点位于进度的末端。</li>
-      </ul>
-    </div>
-    <div class="fourth-box">
-      <ul>
-        <li class="font-weight-bold">
-          通过两个饼图(pie)组成左侧的图形模型，简洁很多、还带trigger效果
-        </li>
-      </ul>
-    </div>
-  </main>
+  <ChartLayout :next-page="nextPage">
+    <main class="chart-container">
+      <div class="first-box">
+        <div id="pie-one" attr="chart" />
+      </div>
+      <div class="second-box">
+        <div id="pie-two" attr="chart" />
+      </div>
+      <div class="third-box">
+        <ul>
+          <li>该图形由两个仪表盘(gauge)图表和一个饼图(pie)组成。</li>
+          <li>由第一个仪表盘构成进度的模样，第二个仪表盘通过调整起始角度构成内圆。</li>
+          <li>进度末端的圆点由饼图构成。需要将饼图调整为与进度模样的仪表盘的起始角度一直，重叠在一起。然后将饼图划分为三段，第一段的数值与进度数值一直，第二段的数值为空（给这个数据值设置label样式，即圆点），第三段为饼图总的数值大小减去第一段的数值。以此控制圆点位于进度的末端。</li>
+        </ul>
+      </div>
+      <div class="fourth-box">
+        <ul>
+          <li class="font-weight-bold">
+            通过两个饼图(pie)组成左侧的图形模型，简洁很多、还带trigger效果
+          </li>
+        </ul>
+      </div>
+    </main>
+  </ChartLayout>
 </template>

@@ -1,6 +1,8 @@
 <script setup>
+import ChartLayout from "@/components/ChartLayout.vue"
 import * as echarts from "echarts"
 import { onMounted } from "vue"
+import { useRouter } from "vue-router"
 
 function initPieThird(){
   const pieThird = echarts.init(document.getElementById('pie-third'))
@@ -39,7 +41,6 @@ function initPieThird(){
     ]
   })
 }
-
 function initPieFourth(){
   const pieFourth = echarts.init(document.getElementById('pie-fourth'))
 
@@ -143,31 +144,41 @@ function initPieFourth(){
     ]
   })
 }
-
 onMounted(() => {
   initPieThird()
   initPieFourth()
 })
+
+const router = useRouter()
+function nextPage(){
+  router.push({ name: 'PieChartThree' })
+}
+
+function prePage(){
+  router.push({ name: 'PieChartOne' })
+}
 </script>
 <template>
-  <main class="chart-container">
-    <div class="first-box">
-      <div id="pie-third" attr="chart" />
-    </div>
-    <div class="second-box">
-      <div id="pie-fourth" attr="chart" />
-    </div>
-    <div class="third-box">
-      <ul>
-        <li>通过三个饼图(pie)，实现进度末端为圆形。</li>
-        <li>进度末端圆形主要是通过itemStyle.borderRadius调整内外圆的圆角半径数值，可以指定四个角各自的数值。</li>
-      </ul>
-    </div>
-    <div class="fourth-box">
-      <ul>
-        <li>通过formatter和rich实现label的多文本块且不同样式。rich支持自定义元素插入图片。</li>
-        <li>label.backgroundColor的值带有透明度，会影响shadowColor的值也具备透明度。但反过来，shadowColor的透明度不会影响label.backgroundColor的颜色值。通过shadowColor模拟单侧边框线时，label.backgroundColor和shadowColor的透明度必须一致，或label.backgroundColor值需没有透明度或非渐变色。</li>
-      </ul>
-    </div>
-  </main>
+  <ChartLayout :next-page="nextPage" :pre-page="prePage">
+    <main class="chart-container">
+      <div class="first-box">
+        <div id="pie-third" attr="chart" />
+      </div>
+      <div class="second-box">
+        <div id="pie-fourth" attr="chart" />
+      </div>
+      <div class="third-box">
+        <ul>
+          <li>通过三个饼图(pie)，实现进度末端为圆形。</li>
+          <li>进度末端圆形主要是通过itemStyle.borderRadius调整内外圆的圆角半径数值，可以指定四个角各自的数值。</li>
+        </ul>
+      </div>
+      <div class="fourth-box">
+        <ul>
+          <li>通过formatter和rich实现label的多文本块且不同样式。rich支持自定义元素插入图片。</li>
+          <li>label.backgroundColor的值带有透明度，会影响shadowColor的值也具备透明度。但反过来，shadowColor的透明度不会影响label.backgroundColor的颜色值。通过shadowColor模拟单侧边框线时，label.backgroundColor和shadowColor的透明度必须一致，或label.backgroundColor值需没有透明度或非渐变色。</li>
+        </ul>
+      </div>
+    </main>
+  </ChartLayout>
 </template>

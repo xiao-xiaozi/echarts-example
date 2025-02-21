@@ -1,4 +1,5 @@
 <script setup>
+import ChartLayout from "@/components/ChartLayout.vue"
 import * as echarts from "echarts"
 import { onMounted } from "vue"
 
@@ -181,24 +182,26 @@ onMounted(() => {
 })
 </script>
 <template>
-  <main class="chart-container">
-    <div class="first-box">
-      <div id="bar-one" attr="chart" />
-    </div>
-    <div class="second-box">
-      <div id="bar-two" attr="chart" />
-    </div>
-    <div class="third-box">
-      <ul>
-        <li>通过将itemStyle.borderColor的颜色设置为透明，实现堆叠柱状图(bar)不同系列之间的间隙。</li>
-      </ul>
-    </div>
-    <div class="fourth-box">
-      <ul>
-        <li>通过数据缩放(dataZoom)设置dataZoom.zoomLock锁定选择区域、实现平移（类滚动）效果。 </li>
-        <li>平移（类滚动）效果，需要关闭调刷选功能，dataZoom.brushSelect设置为false。</li>
-        <li>通过设置label的formatter和rich属性，实现label多段文本且不同样式呈现。</li>
-      </ul>
-    </div>
-  </main>
+  <ChartLayout>
+    <main class="chart-container">
+      <div class="first-box">
+        <div id="bar-one" attr="chart" />
+      </div>
+      <div class="second-box">
+        <div id="bar-two" attr="chart" />
+      </div>
+      <div class="third-box">
+        <ul>
+          <li>通过将itemStyle.borderColor的颜色设置为透明，实现堆叠柱状图(bar)不同系列之间的间隙。</li>
+        </ul>
+      </div>
+      <div class="fourth-box">
+        <ul>
+          <li>通过数据缩放(dataZoom)设置dataZoom.zoomLock锁定选择区域、实现平移（类滚动）效果。 </li>
+          <li>平移（类滚动）效果，需要关闭调刷选功能，dataZoom.brushSelect设置为false。</li>
+          <li>通过设置label的formatter和rich属性，实现label多段文本且不同样式呈现。</li>
+        </ul>
+      </div>
+    </main>
+  </ChartLayout>
 </template>

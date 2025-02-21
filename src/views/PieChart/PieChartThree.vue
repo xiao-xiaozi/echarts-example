@@ -1,6 +1,8 @@
 <script setup>
+import ChartLayout from "@/components/ChartLayout.vue"
 import * as echarts from "echarts"
 import { onMounted } from "vue"
+import { useRouter } from "vue-router"
 
 function initPieFifth(){
   const pieFifth = echarts.init(document.getElementById('pie-fifth'))
@@ -32,22 +34,29 @@ function initPieFifth(){
   }
   pieFifth.setOption({ series: generateSeries([0,0,0,0,0]).concat(generateSeries([10,20,30,40,50])) })
 }
-
 onMounted(() => {
   initPieFifth()
 })
+
+
+const router = useRouter()
+function prePage(){
+  router.push({ name: 'PieChartTwo' })
+}
 </script>
 <template>
-  <main class="chart-container">
-    <div class="first-box">
-      <div id="pie-fifth" attr="chart" />
-    </div>
-    <div class="second-box">2</div>
-    <div class="third-box">
-      <ul>
-        <li>圆环等距排列。</li>
-      </ul>
-    </div>
-    <div class="fourth-box">4</div>
-  </main>
+  <ChartLayout :pre-page="prePage">
+    <main class="chart-container">
+      <div class="first-box">
+        <div id="pie-fifth" attr="chart" />
+      </div>
+      <div class="second-box">2</div>
+      <div class="third-box">
+        <ul>
+          <li>圆环等距排列。</li>
+        </ul>
+      </div>
+      <div class="fourth-box">4</div>
+    </main>
+  </ChartLayout>
 </template>
