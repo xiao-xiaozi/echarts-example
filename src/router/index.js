@@ -5,6 +5,8 @@ import RouterViewLayout from '@/components/RouterViewLayout.vue'
 const PieChartModules = import.meta.glob('@/views/PieChart/*.vue')
 const gaugeChartModules = import.meta.glob('@/views/GaugeChart/*.vue')
 const barChartModules = import.meta.glob('@/views/BarChart/*.vue')
+const liquidFillModules = import.meta.glob('@/views/LiquidFill/*.vue')
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +36,13 @@ const router = createRouter({
       component: RouterViewLayout,
       redirect: '/barChart/one',
       children: generateRoutes(barChartModules,'BarChart')
+    },
+    {
+      path: '/liquidFill',
+      name: 'LiquidFill',
+      redirect: '/liquidFill/one',
+      component: RouterViewLayout,
+      children: generateRoutes(liquidFillModules,'LiquidFill')
     },
     {
       path: '/about',

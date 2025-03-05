@@ -14,6 +14,9 @@
       <RouterLink to="/gaugeChart" class="navigate-chart">
         仪表盘
       </RouterLink>
+      <RouterLink to="/liquidFill" class="navigate-chart">
+        水球图
+      </RouterLink>
     </div>
   </main>
 </template>
