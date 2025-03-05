@@ -171,8 +171,10 @@ function initLiquidfillTwo(){
             label: {
               show: true,
               position: 'inside',
-              padding: 6,
-              borderRadius: 6,
+              width: 12,
+              height: 12,
+              offset: [3,0],
+              borderRadius: 20,
               backgroundColor: '#fff'
             }
           },
@@ -216,6 +218,7 @@ onMounted(() => {
         <ul>
           <li>水球图+饼图</li>
           <li class="font-weight-bold">环形图的线条较细时，通过label模拟的小圆点的不居中效果更明显。线条粗一些视觉上更居中。</li>
+          <li class="font-weight-bold">圆点不居中问题，可以通过offset配置来矫正。</li>
         </ul>
       </div>
     </main>
