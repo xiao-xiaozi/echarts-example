@@ -17,6 +17,9 @@
       <RouterLink to="/liquidFill" class="navigate-chart">
         水球图
       </RouterLink>
+      <RouterLink to="/funnelChart" class="navigate-chart">
+        漏斗图
+      </RouterLink>
     </div>
   </main>
 </template>

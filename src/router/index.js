@@ -6,6 +6,7 @@ const PieChartModules = import.meta.glob('@/views/PieChart/*.vue')
 const gaugeChartModules = import.meta.glob('@/views/GaugeChart/*.vue')
 const barChartModules = import.meta.glob('@/views/BarChart/*.vue')
 const liquidFillModules = import.meta.glob('@/views/LiquidFill/*.vue')
+const FunnelChartModules = import.meta.glob('@/views/FunnelChart/*.vue')
 
 
 const router = createRouter({
@@ -43,6 +44,13 @@ const router = createRouter({
       redirect: '/liquidFill/one',
       component: RouterViewLayout,
       children: generateRoutes(liquidFillModules,'LiquidFill')
+    },
+    {
+      path: '/funnelChart',
+      name: 'FunnelChart',
+      redirect: '/funnelChart/one',
+      component: RouterViewLayout,
+      children: generateRoutes(FunnelChartModules,'FunnelChart')
     },
     {
       path: '/about',
