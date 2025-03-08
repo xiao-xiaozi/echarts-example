@@ -176,7 +176,8 @@ function prePage(){
       <div class="fourth-box">
         <ul>
           <li>通过formatter和rich实现label的多文本块且不同样式。rich支持自定义元素插入图片。</li>
-          <li>label.backgroundColor的值带有透明度，会影响shadowColor的值也具备透明度。但反过来，shadowColor的透明度不会影响label.backgroundColor的颜色值。通过shadowColor模拟单侧边框线时，label.backgroundColor和shadowColor的透明度必须一致，或label.backgroundColor值需没有透明度或非渐变色。</li>
+          <li>label盒子看起来像是【单侧边框线】的效果，实际上是shadowColor实现的，非常规CSS样式的指定单侧边框线。</li>
+          <li class="font-weight-bold">注意：label.backgroundColor的值带有透明度，会影响shadowColor的值也具备透明度。但反过来，shadowColor的透明度不会影响label.backgroundColor的颜色值。通过shadowColor模拟单侧边框线时，label.backgroundColor和shadowColor的透明度必须一致，或label.backgroundColor值需没有透明度或非渐变色。</li>
         </ul>
       </div>
     </main>
