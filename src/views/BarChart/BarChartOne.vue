@@ -2,6 +2,7 @@
 import ChartLayout from "@/components/ChartLayout.vue"
 import * as echarts from "echarts"
 import { onMounted } from "vue"
+import { useRouter } from "vue-router"
 
 function initBarChartOne(){
   const barOne = echarts.init(document.getElementById('bar-one'))
@@ -180,9 +181,14 @@ onMounted(() => {
   initBarChartOne()
   initBarChartTwo()
 })
+
+const router = useRouter()
+function nextPage() {
+  router.push({ name: 'BarChartTwo' })
+}
 </script>
 <template>
-  <ChartLayout>
+  <ChartLayout :next-page="nextPage">
     <main class="chart-container">
       <div class="first-box">
         <div id="bar-one" attr="chart" />

@@ -2,6 +2,7 @@
 import ChartLayout from '@/components/ChartLayout.vue';
 import * as echarts from "echarts"
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 function initBarChartThree(){
   const chart = echarts.init(document.getElementById('barChart-three'))
@@ -11,7 +12,7 @@ function initBarChartThree(){
       axisPointer: { type: 'shadow' }
     },
     grid: {
-      left: '3%',
+      left: '10%',
       right: '4%',
       bottom: '3%',
       containLabel: true
@@ -88,9 +89,13 @@ onMounted(() => {
   initBarChartThree()
 })
 
+const router = useRouter()
+function prePage(){
+  router.push({ name: 'BarChartOne' })
+}
 </script>
 <template>
-  <ChartLayout>
+  <ChartLayout :pre-page="prePage">
     <main class="chart-container">
       <div class="first-box">
         <div id="barChart-three" attr="chart" />
@@ -98,7 +103,7 @@ onMounted(() => {
       <div class="second-box">2</div>
       <div class="third-box">
         <ul>
-          <li>通过 <a href="https://echarts.apache.org/zh/option.html#series-line.markArea">markArea</a> 实现坐标系区域高亮。</li>
+          <li>通过 <a href="https://echarts.apache.org/zh/option.html#series-line.markArea" target="_blank">markArea</a> 实现坐标系区域高亮。</li>
         </ul>
       </div>
       <div class="fourth-box">4</div>
