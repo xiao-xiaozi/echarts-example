@@ -1,3 +1,6 @@
+记录一些echarts图表的实现。
+
+
 # vue3-echarts-example
 
 This template should help get you started developing with Vue 3 in Vite.
