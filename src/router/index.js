@@ -2,11 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RouterViewLayout from '@/components/RouterViewLayout.vue'
 
+// 导入指定图表下的所有文件
 const PieChartModules = import.meta.glob('@/views/PieChart/*.vue')
 const gaugeChartModules = import.meta.glob('@/views/GaugeChart/*.vue')
 const barChartModules = import.meta.glob('@/views/BarChart/*.vue')
 const liquidFillModules = import.meta.glob('@/views/LiquidFill/*.vue')
 const FunnelChartModules = import.meta.glob('@/views/FunnelChart/*.vue')
+const MapChartModules = import.meta.glob('@/views/MapChart/*.vue')
 
 
 const router = createRouter({
@@ -53,6 +55,13 @@ const router = createRouter({
       children: generateRoutes(FunnelChartModules,'FunnelChart')
     },
     {
+      path: '/mapChart',
+      name: 'MapChart',
+      redirect: '/mapChart/one',
+      component: RouterViewLayout,
+      children: generateRoutes(MapChartModules,'MapChart')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -63,6 +72,13 @@ const router = createRouter({
   ],
 })
 
+
+/**
+ * 根据导入的文件构建路由信息
+ * @param {*} modules
+ * @param {*} replaceStr
+ * @returns
+ */
 function generateRoutes(modules,replaceStr){
   const routes = []
   for(let path in modules) {
