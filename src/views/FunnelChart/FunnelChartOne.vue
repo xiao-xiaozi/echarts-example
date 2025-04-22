@@ -128,6 +128,7 @@ onMounted(() => {
       <div class="third-box">
         <ul>
           <li>两个漏斗图堆叠，形成渐变延申效果。</li>
+          <li class="font-weight-bold">漏斗图的itemStyle.color设置为渐变色，label在其上显示时，会有文字描边/阴影效果。（可以通过graphic模拟label在其上显示）</li>
         </ul>
       </div>
       <div class="fourth-box">4</div>
