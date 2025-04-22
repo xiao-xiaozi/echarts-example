@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4834136 */
-  src: url('iconfont.woff2?t=1740103958841') format('woff2'),
-       url('iconfont.woff?t=1740103958841') format('woff'),
-       url('iconfont.ttf?t=1740103958841') format('truetype');
+  src: url('iconfont.woff2?t=1745314284387') format('woff2'),
+       url('iconfont.woff?t=1745314284387') format('woff'),
+       url('iconfont.ttf?t=1745314284387') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,38 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-linechart:before {
+  content: "\e7af";
+}
+
+.icon-barchart:before {
+  content: "\e7b0";
+}
+
+.icon-funnelplot:before {
+  content: "\e7c7";
+}
+
+.icon-radarchart:before {
+  content: "\e7dc";
+}
+
+.icon-chart-pie-alt:before {
+  content: "\e78c";
+}
+
+.icon-Map-:before {
+  content: "\e81a";
+}
+
+.icon-bi-liquidFill-gray:before {
+  content: "\e601";
+}
+
+.icon-gauge:before {
+  content: "\e705";
 }
 
 .icon-home:before {
